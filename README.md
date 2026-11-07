@@ -18,6 +18,8 @@ The sidebar shows live tables and columns; each table has a Query button. Exampl
 
 **Reset database** creates a fresh database from setup.sql and discards all database changes, including any new tables or open transactions. It preserves your editor draft and displays the restored customers table. Reloading also starts a fresh database. SQL drafts are saved in localStorage when browser settings permit. The teaching queries run in a browser worker; there is no database backend. SQL that explicitly reads a remote URL may make a network request.
 
+The sidebar opens [a rendered learning guide](docs.html?doc=EXERCISES.md) in a separate tab, keeping the SQL session open. The guide formats Markdown tables and code blocks, renders the Mermaid ERD, includes Copy SQL buttons and a table of contents, and links to the corresponding file on GitHub. Markdown files remain the source of truth. Formatting libraries load from a CDN; if unavailable, the reader displays the original Markdown.
+
 Page source lives in index.html and web/. Run `npm test` to check result-value formatting. No dependency installation is required for these tests. The setup uses the [official DuckDB-Wasm instantiation pattern](https://duckdb.org/docs/stable/clients/wasm/instantiation).
 
 ## Run
