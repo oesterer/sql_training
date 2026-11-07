@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SQL Lab · DuckDB playground</title><meta name="description" content="Practice SQL with an in-browser DuckDB database and a ready-to-query teaching dataset."><link rel="stylesheet" href="./web/style.css"></head>
+<body>
+<header><a class="brand" href="./">▦ <span>SQL Lab</span></a><span class="tag">LEARN BY QUERYING</span><div id="status" role="status">Starting DuckDB…</div></header>
+<main>
+<section class="intro"><div><p class="eyebrow">YOUR SQL WORKBENCH</p><h1>Small dataset. Big possibilities.</h1><p>A real DuckDB database, right in your browser. Pick a table, write a query, and explore.</p></div><button id="reset" disabled class="secondary">↻ Reset database</button></section>
+<div class="workspace">
+<aside><div class="section-label">DATABASE <span>4 teaching tables</span></div><div id="tables"></div><div class="aside-note"><strong>A fresh start, every visit.</strong><p>Changes stay in this tab. Reset restores the seed data. Your SQL draft is saved in this browser.</p></div><a href="./EXERCISES.md" target="_blank">49 practice questions ↗</a><a href="./ANSWERS.md" target="_blank">Answer key ↗</a></aside>
+<div class="workbench">
+<section class="panel editor-panel"><div class="panel-header"><h2>SQL editor</h2><label class="example-label">Try an example <select id="examples" aria-label="Example query"><option value="">Choose a query…</option></select></label></div><label class="sr-only" for="sql">SQL query</label><textarea id="sql" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="editor-help"></textarea><div class="editor-footer"><span id="editor-help">⌘ / Ctrl + Enter to run · Selected text runs on its own · Batches show the last result</span><button id="run" disabled>▶ Run query</button></div></section>
+<section class="panel result-panel"><div class="panel-header"><h2>Results</h2><span id="metrics">Waiting for your first query</span></div><div id="result" aria-live="polite"><div class="empty">Your results will appear here.<small>The teaching schema loads automatically.</small></div></div></section>
+<p class="footnote">Powered by DuckDB-Wasm · Queries run in your browser · Display limited to 1,000 rows per result</p>
+</div></div></main>
+<script type="module" src="./web/main.js"></script>
+</body></html>

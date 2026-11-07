@@ -2,6 +2,24 @@
 
 One online-shop schema supports a two-table interview question and progressively broader SQL lessons. Start with customers and transactions; add products and transaction_items for many-to-many relationships and sales analysis.
 
+## Browser playground
+
+From the repository root, start a local static server:
+
+```sh
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open **http://127.0.0.1:8000**. Alternatively, run `npm run dev` (no npm install or build is needed). Use a current browser with WebAssembly support and an internet connection: the pinned DuckDB-Wasm JavaScript, worker, and WebAssembly files load from jsDelivr. Serve the page over HTTP; opening index.html directly as a file does not work.
+
+The page creates an in-memory database and executes [setup.sql](setup.sql) automatically. It displays the customers table at startup. Type SQL and click **Run query**, or use **Ctrl/⌘ + Enter**. If text is selected, only that selection runs. SQL batches are supported; the last statement's result is displayed. An error stops the batch, but earlier statements may already have changed the database unless you used an explicit transaction.
+
+The sidebar shows live tables and columns; each table has a Query button. Example queries cover counts, joins, customer totals, the original interview answer loaded from query.sql, and monthly sales. Results show column names, NULL values, exact decimal amounts, elapsed time, and row counts. At most 1,000 rows are rendered; use LIMIT to keep large queries small.
+
+**Reset database** creates a fresh database from setup.sql and discards all database changes, including any new tables or open transactions. It preserves your editor draft and displays the restored customers table. Reloading also starts a fresh database. SQL drafts are saved in localStorage when browser settings permit. The teaching queries run in a browser worker; there is no database backend. SQL that explicitly reads a remote URL may make a network request.
+
+Page source lives in index.html and web/. Run `npm test` to check result-value formatting. No dependency installation is required for these tests. The setup uses the [official DuckDB-Wasm instantiation pattern](https://duckdb.org/docs/stable/clients/wasm/instantiation).
+
 ## Run
 
 From the repository root:
